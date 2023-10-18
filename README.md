@@ -1,2 +1,2 @@
 # 3rd-Party-Software
-For Ansible to pull windows 3rd party software from Chocolately
+For Ansible to pull windows 3rd party software
