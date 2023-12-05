@@ -1,1 +1,10 @@
+---
+- hosts: windows
+  become: true
+  gather_facts: false
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
 
+  tasks:
+    - name: Test Connectivity to a windows host
+      win_ping:
