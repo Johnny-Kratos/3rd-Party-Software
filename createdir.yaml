@@ -5,32 +5,28 @@
     ansible_python_interpreter: /usr/bin/python3
 
   tasks:
-    - name: Test Connectivity to a windows host
-      win_ping:
+    - name: Check if Directory Exists
+      win_stat:
+        path: '{{ Kratos_Folder_sofware }}'
+      register: dir_data
 
----
-- name: Check if Directory Exists
-  win_stat:
-    path: '{{ Kratos_Folder_sofware }}'
-  register: dir_data
+    - name: Directory Found
+      debug:
+        msg: "Directory {{ Kratos_Folder_sofware }} Present"
+      when: dir_data.stat.isdir is defined and dir_data.stat.isdir
 
-- name: Directory Found
-  debug:
-    msg: "Directory {{ Kratos_Folder_sofware }} Present"
-  when: dir_data.stat.isdir is defined and dir_data.stat.isdir
+    - name: Create Directory name Software
+      win_file:
+        path: '{{ Kratos_Folder_sofware }}'
+        state: directory
+      when: not dir_data.stat.exists
 
-- name: Create Directory name Software
-  win_file:
-    path: '{{ Kratos_Folder_sofware }}'
-    state: directory
-  when: not dir_data.stat.exists
-
-- name: Create and Shared Software Folder
-  win_share:
-    name: software
-    description: This is to configure Software as Shared Folder
-    path: '{{ Kratos_Folder_sofware }}'
-    list: yes
-    full: Everyone
-    read: Everyone
-    state: present
+    - name: Create and Shared Software Folder
+      win_share:
+        name: software
+        description: Configure Software as Shared Folder
+        path: '{{ Kratos_Folder_sofware }}'
+        list: yes
+        full: Everyone
+        read: Everyone
+        state: present
