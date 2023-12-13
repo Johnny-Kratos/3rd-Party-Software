@@ -15,4 +15,4 @@
         remote_dest: true
 
     - name: Run Powershell script in privileged mode
-      win_shell: 'C:\KRATOS_FOLDER\software\executionpolicy.ps1'
+      win_shell: C:\KRATOS_FOLDER\software\executionpolicy.ps1 >> C:\policy.txt
