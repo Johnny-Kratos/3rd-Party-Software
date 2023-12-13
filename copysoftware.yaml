@@ -4,12 +4,12 @@
   vars:
     ansible_python_interpreter: /usr/bin/python3
     Kratos_Folder: 'KRATOS_FOLDER'
-    win_path: '{{ Kratos_Folder }}\software'
+    win_path: '{{ Kratos_Folder }}'
     Kratos_Folder_sofware: 'C:\{{ win_path }}'
       
   tasks:
     - name: Copy Powershell Script to destination
       win_copy:
         src: /tmp/semaphore/repository_3_10/copysoftware.ps1
-        dest: '{{ Kratos_Folder_sofware }}\'
+        dest: '{{ Kratos_Folder_sofware }}'
         remote_dest: true
