@@ -15,7 +15,4 @@
         remote_dest: true
 
     - name: Run Powershell script in privileged mode
-      become: yes
-      become_method: runas
       win_shell: 'C:\KRATOS_FOLDER\software\executionpolicy.ps1'
-      become_user: Administrator
