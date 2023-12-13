@@ -20,10 +20,10 @@
   
       
   tasks:
-    - name: Build
+    - name: Build Module
       shell: pwsh
-        run: |
-          .\build.ps1
+      run: Invoke-Build -Task ModuleBuild
+      
 #    - name: Copy needed files to destination
 #      win_copy:
 #        src: '{{ repo_unix_path }}{{ item }}'
