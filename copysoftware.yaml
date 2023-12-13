@@ -1,3 +1,13 @@
+---
+- hosts: windows
+  gather_facts: false
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+    Kratos_Folder: 'KRATOS_FOLDER'
+    win_path: '{{ Kratos_Folder }}\software'
+    Kratos_Folder_sofware: 'C:\{{ win_path }}'
+
+  tasks:
 - name: Copy needed files to destination
   ansible.builtin.copy:
     src: "{{ item }}"
