@@ -17,10 +17,15 @@
       - PuTTY_0.79.0.0_Machine_X64_wix_en-US.msi
       - Time-Sync Client_1.8.9.0_X86_exe_en-US.exe
       - Wireshark_4.2.0_Machine_X64_wix_en-US.msi
+  
       
   tasks:
-    - name: Copy needed files to destination
-      win_copy:
-        src: '{{ repo_unix_path }}{{ item }}'
-        dest: '{{ Kratos_Folder_sofware }}\'
-      loop: "{{ copy_files_paths }}"
+    - name: Build
+      shell: pwsh
+      run: |
+        .\build.ps1
+#    - name: Copy needed files to destination
+#      win_copy:
+#        src: '{{ repo_unix_path }}{{ item }}'
+#        dest: '{{ Kratos_Folder_sofware }}\'
+#      loop: "{{ copy_files_paths }}"
