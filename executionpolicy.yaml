@@ -1,6 +1,7 @@
 ---
 - hosts: windows
   gather_facts: false
+  become_method: runas
   vars:
     ansible_python_interpreter: /usr/bin/python3
     Kratos_Folder: 'KRATOS_FOLDER'
@@ -13,3 +14,8 @@
         src: /tmp/semaphore/repository_3_10/executionpolicy.ps1
         dest: '{{ Kratos_Folder_sofware }}\'
         remote_dest: true
+
+    - name: Run Powershell script in privileged mode
+      win_shell: 'C:\KRATOS_FOLDER\software\executionpolicy.ps1'
+      become: yes
+      become_user: Administrator
