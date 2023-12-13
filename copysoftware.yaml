@@ -22,8 +22,8 @@
   tasks:
     - name: Build
       shell: pwsh
-      run: |
-        .\build.ps1
+        run: |
+          .\build.ps1
 #    - name: Copy needed files to destination
 #      win_copy:
 #        src: '{{ repo_unix_path }}{{ item }}'
