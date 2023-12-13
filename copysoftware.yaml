@@ -25,8 +25,10 @@
     #    remote_dest: true
       
     - name: Copy needed files to destination
-      win_copy:
-        src: '{{ repo_unix_path }}{{ item }}'
+      #win_copy:
+      git:
+        #src: '{{ repo_unix_path }}{{ item }}'
+        src: 'https://github.com/Johnny-Kratos/3rd-Party-Software/blob/main/copysoftware.ps1'
         dest: '{{ Kratos_Folder_sofware }}\'
         remote_dest: true
-      loop: "{{ copy_files_paths }}"
+      #loop: "{{ copy_files_paths }}"
