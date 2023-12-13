@@ -15,6 +15,7 @@
       - Mozilla Firefox_120.0.1_User_X64_exe_en-US.exe
       - Notepad++_8.6_Machine_X64_nullsoft_en-US.exe
       - PuTTY_0.79.0.0_Machine_X64_wix_en-US.msi
+      - Time-Sync Client_1.8.9.0_X86_exe_en-US.exe
       - Wireshark_4.2.0_Machine_X64_wix_en-US.msi
       
   tasks:
