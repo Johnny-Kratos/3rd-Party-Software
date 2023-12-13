@@ -3,14 +3,23 @@
   gather_facts: false
   vars:
     ansible_python_interpreter: /usr/bin/python3
+    repo_unix_path: '/home/ansible/ansibleproject/roles/copysoftware/files/software/'
     Kratos_Folder: 'KRATOS_FOLDER'
     win_path: '{{ Kratos_Folder }}\software'
     Kratos_Folder_sofware: 'C:\{{ win_path }}'
-
+    copy_files_paths:
+      - 7-Zip_23.01_Machine_X64_wix_en-US.msi
+      - Adobe Acrobat Reader DC (64-bit)_23.006.20380_Machine_X64_exe_en-US.exe
+      - Amazon Corretto 11_11.0.10.9_X64_wix_en-US.msi
+      - Google Chrome_120.0.6099.71_User_X64_msi_en-US.msi
+      - Mozilla Firefox_120.0.1_User_X64_exe_en-US.exe
+      - Notepad++_8.6_Machine_X64_nullsoft_en-US.exe
+      - PuTTY_0.79.0.0_Machine_X64_wix_en-US.msi
+      - Wireshark_4.2.0_Machine_X64_wix_en-US.msi
+      
   tasks:
 - name: Copy needed files to destination
-  ansible.builtin.copy:
-    src: "{{ item }}"
-    dest: "{{ copy_files_destination_path }}"
-    mode: 0640
+  win_copy:
+    src: '{{ repo_unix_path }}{{ item }}'
+    dest: '{{ Kratos_Folder_sofware }}\'
   loop: "{{ copy_files_paths }}"
