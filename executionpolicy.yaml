@@ -11,5 +11,5 @@
     - name: Copy Powershell Script to destination
       win_copy:
         src: /tmp/semaphore/repository_3_10/executionpolicy.ps1
-        dest: '{{ Kratos_Folder_sofware }}\'
+        dest: '{{ Kratos_Folder_sofware }}'
         remote_dest: true
