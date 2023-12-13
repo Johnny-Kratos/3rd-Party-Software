@@ -8,11 +8,7 @@
     Kratos_Folder_sofware: 'C:\{{ win_path }}'
       
   tasks:
-    #- name: Run powershell script
-    #  script: files/helloworld.ps1
-    #    remote_dest: true
-      
-    - name: Copy needed files to destination
+    - name: Copy Powershell Script to destination
       win_copy:
         src: /tmp/semaphore/repository_3_10/copysoftware.ps1
         dest: '{{ Kratos_Folder_sofware }}\'
