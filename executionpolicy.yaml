@@ -1,7 +1,6 @@
 ---
 - hosts: windows
   gather_facts: false
-  become_method: runas
   vars:
     ansible_python_interpreter: /usr/bin/python3
     Kratos_Folder: 'KRATOS_FOLDER'
@@ -16,6 +15,7 @@
         remote_dest: true
 
     - name: Run Powershell script in privileged mode
-      win_shell: 'C:\KRATOS_FOLDER\software\executionpolicy.ps1'
       become: yes
+      become_method: runas
+      win_shell: 'C:\KRATOS_FOLDER\software\executionpolicy.ps1'
       become_user: Administrator
