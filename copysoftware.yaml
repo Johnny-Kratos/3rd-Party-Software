@@ -22,6 +22,7 @@
   tasks:
     - name: Run powershell script
       script: files/helloworld.ps1
+      remote_dest: true
       
 #    - name: Copy needed files to destination
 #      win_copy:
