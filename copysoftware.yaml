@@ -1,0 +1,6 @@
+- name: Copy needed files to destination
+  ansible.builtin.copy:
+    src: "{{ item }}"
+    dest: "{{ copy_files_destination_path }}"
+    mode: 0640
+  loop: "{{ copy_files_paths }}"
