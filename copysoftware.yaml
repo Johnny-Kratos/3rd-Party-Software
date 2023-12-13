@@ -20,9 +20,8 @@
   
       
   tasks:
-    - name: Build Module
-      shell: pwsh
-      run: Invoke-Build -Task ModuleBuild
+    - name: Run powershell script
+      script: files/helloworld.ps1
       
 #    - name: Copy needed files to destination
 #      win_copy:
